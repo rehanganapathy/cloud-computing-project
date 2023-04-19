@@ -13,7 +13,6 @@ def add(n1, n2):
     response = requests.get(api_url)
     result = response.json()['result']
     return result
-    #webbrowser.open(api_url, new=2)
 
 
 def minus(n1, n2):
@@ -37,14 +36,14 @@ def divide(n1, n2):
     return result
 
 
-def gcd(n1, n2):
+def modulo(n1, n2):
     api_url = "http://host.docker.internal:5055/" + str(n1) + "/" + str(n2)
     response = requests.get(api_url)
     result = response.json()['result']
     return result
 
 
-def lcm(n1, n2):
+def greaterThan(n1, n2):
     api_url = "http://host.docker.internal:5056/" + str(n1) + "/" + str(n2)
     response = requests.get(api_url)
     result = response.json()['result']
@@ -82,14 +81,14 @@ def index():
         result = multiply(number_1, number_2)
     elif operation == 'divide':
         result = divide(number_1, number_2)
-    elif operation == 'gcd':
+    elif operation == 'modulo':
         number_1 = round(number_1)
         number_2 = round(number_2)
-        result = gcd(number_1, number_2)
-    elif operation == 'lcm':
+        result = modulo(number_1, number_2)
+    elif operation == 'greaterThan':
         number_1 = round(number_1)
         number_2 = round(number_2)
-        result = lcm(number_1, number_2)
+        result = greaterThan(number_1, number_2)
     elif operation == 'exponent':
         result = exponent(number_1, number_2)
 
@@ -106,5 +105,5 @@ if __name__ == '__main__':
     app.run(
         debug=True,
         port=5050,
-        host="0.0.0.0"
+        host='0.0.0.0'
     )

@@ -1,4 +1,4 @@
-version: '3.3' # version of compose format
+version: '3.7' # version of compose format
 
 services:
   landing-service:
@@ -51,25 +51,25 @@ services:
         aliases:
           - division-service
 
-  gcd-service:
-    build: ./gcd # path is relative to docker-compose.yml location
+  modulo-service:
+    build: ./modulo # path is relative to docker-compose.yml location
     hostname: landing-service
     ports:
       - 5055:5055 # host:container
     networks:
       sample:
         aliases:
-          - gcd-service
+          - modulo-service
 
-  lcm-service:
-    build: ./lcm # path is relative to docker-compose.yml location
+  greater-service:
+    build: ./greater # path is relative to docker-compose.yml location
     hostname: landing-service
     ports:
       - 5056:5056 # host:container
     networks:
       sample:
         aliases:
-          - lcm-service
+          - greater-service
 
   exponential-service:
     build: ./exponent # path is relative to docker-compose.yml location

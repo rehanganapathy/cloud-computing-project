@@ -6,16 +6,18 @@ app = Flask(__name__)
 app.secret_key = 'thisisjustarandomstring'
 api = Api(app)
 
-class GCD(Resource):
+class greaterThan(Resource):
     def get(self, num1, num2):
-        result = math.gcd(int(num1), int(num2))
-        return {'result': result}
+        if num1 > num2:
+            return {'result': num1}
+        else:
+            return {'result': num2}
 
-api.add_resource(GCD, '/<string:num1>/<string:num2>')
+api.add_resource(greaterThan, '/<string:num1>/<string:num2>')
 
 if __name__ == '__main__':
     app.run(
         debug=True,
-        port=5055,
+        port=5056,
         host="0.0.0.0"
     )
