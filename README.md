@@ -1,4 +1,4 @@
-# cloud-computing-project
+# Cloud-Computing-Project
 CLOUD COMPUTING - UE20CS351
 
 Batch - 16
